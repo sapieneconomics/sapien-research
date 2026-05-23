@@ -1,0 +1,207 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #fff;
+  --fg: #111;
+  --muted: #888;
+  --border: #e8e8e8;
+  --max-width: 660px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f0f;
+    --fg: #e8e8e8;
+    --muted: #666;
+    --border: #222;
+  }
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.75;
+  color: var(--fg);
+  background: var(--bg);
+  padding: 0 1.5rem;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.site-title {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+nav a:hover {
+  color: var(--fg);
+}
+
+/* Post list */
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.post-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.post-date {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+
+.post-title a {
+  font-size: 1rem;
+  font-weight: normal;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* Article */
+
+article {
+  max-width: var(--max-width);
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-header h1 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+
+.post-header time {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.post-body h2 {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.post-body h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 2rem 0 0.5rem;
+}
+
+.post-body p {
+  margin-bottom: 1.25rem;
+}
+
+.post-body a {
+  color: var(--fg);
+  text-underline-offset: 3px;
+}
+
+.post-body blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem;
+  color: var(--muted);
+  margin: 1.5rem 0;
+}
+
+.post-body ul,
+.post-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.post-body li {
+  margin-bottom: 0.35rem;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* About page */
+
+.about-body p {
+  margin-bottom: 1.25rem;
+}
+
+.about-body h1 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}

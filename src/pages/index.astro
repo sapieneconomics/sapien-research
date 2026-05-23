@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = await getCollection('posts');
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+---
+<BaseLayout description="Opinions on markets, economics, and finance.">
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <span class="post-date">{formatDate(post.data.date)}</span>
+        <div>
+          <div class="post-title">
+            <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+          </div>
+          {post.data.description && (
+            <div class="post-desc">{post.data.description}</div>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
